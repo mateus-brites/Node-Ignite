@@ -1,5 +1,8 @@
 #Aplicação 02
-###Nesta aplicação nós implementamos alguns conceitos de arquitetura de Software como S.O.L.I.D. e Singleton Pattern além de começarmos a trabalhar com Upload de arquivos
+<h1>
+    Nesta aplicação nós implementamos alguns conceitos de arquitetura de Software como S.O.L.I.D. e Singleton Pattern além de começarmos a trabalhar com Upload de arquivos
+</h1>
+
 ---
 
 ##Sobre a aplicação:
