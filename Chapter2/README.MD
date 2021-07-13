@@ -1,11 +1,13 @@
-#Aplicação 02
 <h1>
-    Nesta aplicação nós implementamos alguns conceitos de arquitetura de Software como S.O.L.I.D. e Singleton Pattern além de começarmos a trabalhar com Upload de arquivos
+    Aplicação 02
 </h1>
+<h2>
+    Nesta aplicação nós implementamos alguns conceitos de arquitetura de Software como S.O.L.I.D. e Singleton Pattern além de começarmos a trabalhar com Upload de arquivos
+</h2>
 
 ---
 
-##Sobre a aplicação:
+#Sobre a aplicação:
 Nessa aplicação é possível criar uma categoria contendo 1 nome e 1 descrição e salvar no repositório. A criação pode ser feita tanto de forma manual quanto por upload de um arquivo csv, que é feito em forma de stream, onde é possível cadastrar várias categorias de uma só vez.
 Na pasta tmp tem um exemplo do arquivo csv utilizado.
 
