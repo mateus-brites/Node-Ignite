@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { NextFunction, Request, Response } from "express";
 import { verify } from "jsonwebtoken";
 
@@ -8,11 +9,11 @@ interface IPayload {
     sub: string;
 }
 
-export function ensureAuthenticated(
+export async function ensureAuthenticated(
     request: Request,
     response: Response,
     next: NextFunction
-): void {
+) {
     const authHeader = request.headers.authorization;
 
     if (!authHeader) {
@@ -29,7 +30,7 @@ export function ensureAuthenticated(
 
         const usersRepository = new UsersRepository();
 
-        const user = usersRepository.findById(user_id);
+        const user = await usersRepository.findById(user_id);
 
         if (!user) {
             throw new AppError("User does not exist", 401);
