@@ -2,7 +2,7 @@ import { inject, injectable } from "tsyringe";
 
 import { Car } from "@modules/cars/infra/typeorm/entities/Cars";
 import { ICarsRepository } from "@modules/cars/repositories/ICarsRepository";
-import { SpecificationRepositoryInMemory } from "@modules/cars/repositories/in-memory/SpecificarionRepositoryInMemory";
+import { ISpecificationRepository } from "@modules/cars/repositories/ISpecificationRepository";
 import { AppError } from "@shared/errors/AppError";
 
 interface IRequest {
@@ -14,7 +14,7 @@ interface IRequest {
 class CreateCarSpecificationUseCase {
   constructor(
     @inject("SpecificationRepository")
-    private specificationsRepositoryInMemory: SpecificationRepositoryInMemory,
+    private specificationsRepository: ISpecificationRepository,
     @inject("CarsRepository")
     private carsRepository: ICarsRepository
   ) {}
@@ -25,8 +25,9 @@ class CreateCarSpecificationUseCase {
       throw new AppError("This car id does not exist");
     }
 
-    const specifications =
-      await this.specificationsRepositoryInMemory.findByIds(specifications_id);
+    const specifications = await this.specificationsRepository.findByIds(
+      specifications_id
+    );
 
     carExist.specification = specifications;
 
