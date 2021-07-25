@@ -8,7 +8,7 @@ class ListCategoriesController {
     const listCategoryUseCase = container.resolve(ListCategoriesUseCase);
     const all = await listCategoryUseCase.execute();
 
-    return response.json(all);
+    return response.status(200).json(all);
   }
 }
 export { ListCategoriesController };
