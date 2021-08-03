@@ -18,8 +18,8 @@ describe("Create Category Controller", () => {
     const password = await hash("admin", 8);
 
     await connection.query(
-      `INSERT INTO USERS(id, name, email, password, "isAdmin", created_at, driver_license )
-            values('${id}', 'admin', 'admin@rentx.com.br', '${password}', true, 'now()', 'XXXXX')
+      `INSERT INTO USERS(id, name, email, password, "isAdmin", created_at, driver_license)
+            values('${id}','admin','admin@rentx.com.br','${password}',true,'now()','XXXXX')
         `
     );
   });
@@ -30,6 +30,7 @@ describe("Create Category Controller", () => {
   });
 
   it("Should be able to create a new category", async () => {
+    // jest.setTimeout(100000);
     const responseToken = await request(app).post("/sessions").send({
       email: "admin@rentx.com.br",
       password: "admin",
@@ -48,7 +49,7 @@ describe("Create Category Controller", () => {
       });
 
     expect(response.status).toBe(201);
-  });
+  }, 100000);
 
   it("Should not be able to create a new category with name existent", async () => {
     const responseToken = await request(app).post("/sessions").send({
@@ -69,5 +70,5 @@ describe("Create Category Controller", () => {
       });
 
     expect(response.status).toBe(400);
-  });
+  }, 100000);
 });
